@@ -1,0 +1,6 @@
+@VirtualLibrary.Infrastructure.API_HostAddress = http://localhost:5067
+
+GET {{VirtualLibrary.Infrastructure.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
