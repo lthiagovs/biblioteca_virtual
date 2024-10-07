@@ -12,7 +12,10 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VirtualLibrary.Models\VirtualLibrary.Domain.Models.csproj" />
   </ItemGroup>
 
 </Project>
