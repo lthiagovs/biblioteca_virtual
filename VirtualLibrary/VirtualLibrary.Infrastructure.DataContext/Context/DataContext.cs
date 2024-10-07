@@ -2,7 +2,7 @@
 using VirtualLibrary.Domain.Models.Library;
 using VirtualLibrary.Domain.Models.Person;
 
-namespace VirtualLibrary.Infrastructure.DataContext.Context
+namespace VirtualLibrary.Infrastructure.Context
 {
     public class DataContext : DbContext
     {

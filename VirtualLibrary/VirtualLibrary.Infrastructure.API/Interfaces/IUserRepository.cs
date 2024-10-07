@@ -12,8 +12,6 @@ namespace VirtualLibrary.Infrastructure.API.Interfaces
 
         public User? GetUserByLogin(string email, string password);
 
-        public User? GetUserByBook(Book book);
-
         public bool CreateUser(User user);
 
         public bool DeleteUser(User user);

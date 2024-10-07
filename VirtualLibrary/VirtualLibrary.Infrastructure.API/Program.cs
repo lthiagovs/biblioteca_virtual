@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using VirtualLibrary.Infrastructure.DataContext.Context;
+using VirtualLibrary.Infrastructure.Context.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
