@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using VirtualLibrary.Infrastructure.Context.Context;
+using VirtualLibrary.Infrastructure.API.Interfaces;
+using VirtualLibrary.Infrastructure.API.Repository;
+using VirtualLibrary.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,8 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
