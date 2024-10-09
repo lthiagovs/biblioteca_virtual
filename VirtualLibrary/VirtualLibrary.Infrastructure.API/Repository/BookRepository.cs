@@ -22,7 +22,7 @@ namespace VirtualLibrary.Infrastructure.API.Repository
 
         public IEnumerable<Book> GetBooksByTitle(string title)
         {
-            return this._context.Book.Where(book => book.Title == title).ToList();
+            return this._context.Book.Where(book => book.Title.Contains(title)).ToList();
         }
 
         public IEnumerable<Book> GetBooksByAuthor(User author)
