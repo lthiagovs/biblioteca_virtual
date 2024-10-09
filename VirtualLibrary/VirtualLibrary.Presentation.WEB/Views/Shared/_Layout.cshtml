@@ -4,46 +4,114 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - VirtualLibrary.Presentation.WEB</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/VirtualLibrary.Presentation.WEB.styles.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Calibri Light', sans-serif; /* Fonte Calibri Light */
+        }
+        /* Navbar */
+        .navbar {
+            background-color: #007b33; /* Verde mais claro */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid #005b26; /* Borda inferior */
+        }
+        .navbar-brand, .navbar-nav .nav-link, .navbar-text {
+            color: white !important;
+            transition: background-color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Efeito de fade nos links */
+            border-radius: 5px;
+        }
+        .navbar-brand img {
+            border-radius: 50%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-text img {
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Carousel */
+        .carousel-item img {
+            height: 80vh;
+            object-fit: cover;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Cards */
+        .card {
+            border: none;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            margin-bottom: 20px; /* Espaço entre os cards */
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .card img {
+            border-radius: 0; /* Bordas quadradas */
+            width: 100%; /* Imagem cobre toda a largura */
+            height: auto; /* Mantém a proporção */
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to bottom, #007b33, #005b26); /* Degradê no footer */
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">VirtualLibrary.Presentation.WEB</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logosite.png" alt="Logo" width="40" height="40">
+                Biblioteca Virtual
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contato</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <img src="logosite.png" alt="User" class="rounded-circle" width="30" height="30">
+                    User
+                </span>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    
+    <footer class="text-center">
         <div class="container">
-            &copy; 2024 - VirtualLibrary.Presentation.WEB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <p>Contato: contato@bibliotecavirtual.tiangua.br</p>
+            <p>Esse projeto é apoiado pela Lei Paulo Gustavo.</p>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
