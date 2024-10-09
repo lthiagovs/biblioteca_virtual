@@ -1,0 +1,111 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+    .btn-green {
+        background-color: #007b33; /* Cor do botão verde */
+        color: white; /* Cor do texto */
+    }
+
+        .btn-green:hover {
+            background-color: #005b26; /* Cor do botão ao passar o mouse */
+        }
+
+    .btn-salvo {
+        background-color: #007bff; /* Cor do botão "Salvo" */
+        color: white; /* Cor do texto */
+    }
+
+        .btn-salvo:hover {
+            background-color: #0056b3; /* Cor do botão ao passar o mouse */
+        }
+    /* Estilo da imagem do livro */
+    .card-img-top {
+        width: 100%;
+        height: 150px; /* Altura fixa para as imagens dos livros */
+        object-fit: cover; /* Cobre todo o espaço do card */
+    }
+    /* Estilo da imagem do autor */
+    .author-photo {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%; /* Torna a imagem redonda */
+        margin-right: 10px; /* Espaço entre a imagem e o texto */
+    }
+    /* Barra lateral */
+    .sidebar {
+        width: 250px; /* Largura da barra lateral */
+        background-color: #e9ecef; /* Cor da barra lateral */
+        padding: 20px;
+        margin-right: 20px; /* Espaço à direita */
+        border-radius: 5px; /* Bordas arredondadas */
+    }</style>
+
+<div class="container my-5 d-flex">
+    <div class="sidebar">
+        <h4>Categorias</h4>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Ficção</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Não-Ficção</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">História</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Ciência</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Fantasia</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none">Biografias</a></li>
+        </ul>
+    </div>
+    <div class="flex-fill">
+        <h3>Acervo</h3>
+        <div class="mb-3 d-flex">
+            <input type="text" class="form-control" id="searchBook" placeholder="Pesquisar por título...">
+            <button class="btn btn-green ms-2">Pesquisar</button>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/250x150" class="card-img-top" alt="Livro 1">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-2">
+                            <img src="https://via.placeholder.com/30" alt="Autor" class="author-photo">
+                            <span>Autor</span>
+                        </div>
+                        <h5 class="card-title">Título do Livro 1</h5>
+                        <p class="card-text">Descrição do Livro 1.</p>
+                        <button class="btn btn-green">Salvar</button> <!-- Botão Salvar -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/250x150" class="card-img-top" alt="Livro 2">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-2">
+                            <img src="https://via.placeholder.com/30" alt="Autor" class="author-photo">
+                            <span>Autor</span>
+                        </div>
+                        <h5 class="card-title">Título do Livro 2</h5>
+                        <p class="card-text">Descrição do Livro 2.</p>
+                        <button class="btn btn-green">Salvar</button> <!-- Botão Salvar -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/250x150" class="card-img-top" alt="Livro 3">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-2">
+                            <img src="https://via.placeholder.com/30" alt="Autor" class="author-photo">
+                            <span>Autor</span>
+                        </div>
+                        <h5 class="card-title">Título do Livro 3</h5>
+                        <p class="card-text">Descrição do Livro 3.</p>
+                        <button class="btn btn-green">Salvar</button> <!-- Botão Salvar -->
+                    </div>
+                </div>
+            </div>
+            <!-- Adicione mais livros conforme necessário -->
+        </div>
+    </div>
+</div>
