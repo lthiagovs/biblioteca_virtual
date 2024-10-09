@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\VirtualLibrary.Infrastructure.DataContext\VirtualLibrary.Infrastructure.DataContext.csproj" />
     <ProjectReference Include="..\VirtualLibrary.Models\VirtualLibrary.Domain.Models.csproj" />
   </ItemGroup>
