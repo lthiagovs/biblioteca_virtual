@@ -1,0 +1,116 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+
+    .profile-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            align-items: center; /* Alinha a imagem e o texto do perfil */
+            opacity: 0; /* Inicia invisível */
+            animation: fadeIn 1s forwards; /* Animação de fade */
+        }
+        .profile-card img {
+            width: 100px; /* Tamanho da imagem do autor */
+            height: 100px;
+            border-radius: 50%; /* Imagem em formato circular */
+            margin-right: 20px; /* Espaçamento entre a imagem e o texto */
+        }
+        /* Estilo dos cards de livros */
+        .book-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            overflow: hidden; /* Para garantir que a imagem não ultrapasse as bordas */
+            opacity: 0; /* Inicia invisível */
+            animation: fadeIn 1s forwards; /* Animação de fade */
+            transition: transform 0.3s; /* Efeito de transformação */
+        }
+        .book-card img {
+            width: 100%; /* Imagem ocupa 100% do card */
+            height: 200px; /* Altura fixa para a imagem */
+            object-fit: cover; /* Corta a imagem para caber no espaço */
+        }
+        .book-card:hover {
+            transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+        }
+        /* Estilo do botão "Salvar" */
+        .btn-save {
+            background-color: #007b33; /* Verde */
+            color: white;
+            transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+        }
+        .btn-save:hover {
+            background-color: #005b26; /* Verde escuro */
+            transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
+        }
+
+
+        /* Animação de Fade */
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* Desloca para baixo */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Volta à posição original */
+            }
+        }
+</style>
+
+<div class="container my-5">
+    <h1 class="text-center mb-4">Perfil do Autor</h1>
+    <div class="profile-card">
+        <img src="https://via.placeholder.com/100" alt="Autor">
+        <div>
+            <h3>Nome do Autor</h3>
+            <p>Email: autor@exemplo.com</p>
+            <p>Descrição: Autor de diversos livros sobre tecnologia e inovação.</p>
+        </div>
+    </div>
+
+    <h2 class="text-center my-4">Livros Postados</h2>
+    <div class="row justify-content-center">
+        <!-- Card do Livro 1 -->
+        <div class="col-md-4">
+            <div class="book-card">
+                <img src="https://via.placeholder.com/500x300" alt="Livro 1">
+                <div class="text-center p-3">
+                    <h5>Título do Livro 1</h5>
+                    <p>Descrição breve do livro.</p>
+                    <button class="btn btn-save">Salvar</button>
+                </div>
+            </div>
+        </div>
+        <!-- Card do Livro 2 -->
+        <div class="col-md-4">
+            <div class="book-card">
+                <img src="https://via.placeholder.com/500x300" alt="Livro 2">
+                <div class="text-center p-3">
+                    <h5>Título do Livro 2</h5>
+                    <p>Descrição breve do livro.</p>
+                    <button class="btn btn-save">Salvar</button>
+                </div>
+            </div>
+        </div>
+        <!-- Card do Livro 3 -->
+        <div class="col-md-4">
+            <div class="book-card">
+                <img src="https://via.placeholder.com/500x300" alt="Livro 3">
+                <div class="text-center p-3">
+                    <h5>Título do Livro 3</h5>
+                    <p>Descrição breve do livro.</p>
+                    <button class="btn btn-save">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

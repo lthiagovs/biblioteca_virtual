@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace VirtualLibrary.Presentation.WEB.Controllers
 {
-    public class BookController : Controller
+    public class BooksController : Controller
     {
 
 
-        public BookController()
+        public BooksController()
         {
             
         }

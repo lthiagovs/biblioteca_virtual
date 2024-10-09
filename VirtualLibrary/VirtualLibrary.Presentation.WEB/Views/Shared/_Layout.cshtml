@@ -71,7 +71,7 @@
     
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
                 <img src="logosite.png" alt="Logo" width="40" height="40">
                 Biblioteca Virtual
             </a>
@@ -81,13 +81,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="@Url.Action("Index", "Login")">Entrar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Catálogo</a>
+                        <a class="nav-link" href="@Url.Action("Index", "Books")">Catálogo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contato</a>
+                        <a class="nav-link" href="@Url.Action("Index", "Publish")">Publicar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "About")">Sobre</a>
                     </li>
                 </ul>
                 <span class="navbar-text">
@@ -111,6 +114,8 @@
             <p>Esse projeto é apoiado pela Lei Paulo Gustavo.</p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
