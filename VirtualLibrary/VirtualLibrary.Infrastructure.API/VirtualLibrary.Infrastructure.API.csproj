@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\VirtualLibrary.Domain.Dto\VirtualLibrary.Domain.Dto.csproj" />
     <ProjectReference Include="..\VirtualLibrary.Infrastructure.DataContext\VirtualLibrary.Infrastructure.DataContext.csproj" />
     <ProjectReference Include="..\VirtualLibrary.Models\VirtualLibrary.Domain.Models.csproj" />
   </ItemGroup>
