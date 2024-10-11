@@ -12,7 +12,7 @@ namespace VirtualLibrary.Infrastructure.API.Interfaces
 
         public User? GetUserByLogin(string email, string password);
 
-        public bool UserExist(int ID);
+        public bool UserExists(int ID);
 
         public bool CreateUser(User user);
 

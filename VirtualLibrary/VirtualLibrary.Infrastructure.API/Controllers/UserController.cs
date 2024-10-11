@@ -26,7 +26,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
         public IActionResult GetUserByID([FromBody] int ID)
         {
 
-            if (!this._userRepository.UserExist(ID))
+            if (!this._userRepository.UserExists(ID))
                 return BadRequest(ModelState);
 
             var user = this._userRepository.GetUserByID(ID);
@@ -72,7 +72,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
             if (user == null)
                 return BadRequest(ModelState);
 
-            if (!this._userRepository.UserExist(user.ID))
+            if (!this._userRepository.UserExists(user.ID))
                 return BadRequest(ModelState);
 
             if (!ModelState.IsValid)
@@ -96,7 +96,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
         public IActionResult DeleteUser([FromBody] User user)
         {
 
-            if (!_userRepository.UserExist(user.ID))
+            if (!_userRepository.UserExists(user.ID))
                 return BadRequest(ModelState);
 
             if (!ModelState.IsValid)

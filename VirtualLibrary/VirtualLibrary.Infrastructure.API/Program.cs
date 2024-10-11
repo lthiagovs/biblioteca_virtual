@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using VirtualLibrary.Infrastructure.API.Interfaces;
 using VirtualLibrary.Infrastructure.API.Repository;
-using VirtualLibrary.Infrastructure.Context;
+using VirtualLibrary.Infrastructure.Data.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 

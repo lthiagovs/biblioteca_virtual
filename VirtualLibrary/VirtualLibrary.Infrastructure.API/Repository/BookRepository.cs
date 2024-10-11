@@ -1,7 +1,7 @@
 ﻿using VirtualLibrary.Domain.Models.Library;
 using VirtualLibrary.Domain.Models.Person;
 using VirtualLibrary.Infrastructure.API.Interfaces;
-using VirtualLibrary.Infrastructure.Context;
+using VirtualLibrary.Infrastructure.Data.Context;
 
 namespace VirtualLibrary.Infrastructure.API.Repository
 {
