@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RestClient" Version="3.1024.23771" />
+    <PackageReference Include="RestSharp" Version="112.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VirtualLibrary.Models\VirtualLibrary.Domain.Models.csproj" />
+  </ItemGroup>
+
 </Project>
