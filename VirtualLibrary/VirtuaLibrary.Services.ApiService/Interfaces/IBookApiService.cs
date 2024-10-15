@@ -1,7 +1,7 @@
 ﻿using VirtualLibrary.Domain.Models.Library;
 using VirtualLibrary.Domain.Models.Person;
 
-namespace VirtuaLibrary.Services.ApiService.Interface
+namespace VirtuaLibrary.Services.ApiService.Interfaces
 {
     public interface IBookApiService
     {
@@ -10,7 +10,7 @@ namespace VirtuaLibrary.Services.ApiService.Interface
 
         public Task<List<Book>> GetBooksByTitle(string title);
 
-        public Task<List<Book>> GetBooksByAuthor(User user);
+        public Task<List<Book>> GetBooksByAuthor(int ID);
 
         public Task<Book?> GetBookByID(int ID);
 

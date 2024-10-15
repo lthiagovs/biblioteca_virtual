@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
-using VirtuaLibrary.Services.ApiService.Interface;
+using VirtuaLibrary.Services.ApiService.Interfaces;
 using VirtualLibrary.Domain.Models.Library;
 using VirtualLibrary.Domain.Models.Person;
 
 namespace VirtuaLibrary.Services.ApiService.Consume
 {
-    public class UserApiService : IUserUserApiService
+    public class UserApiService : IUserApiService
     {
 
         private readonly RestClient _client;

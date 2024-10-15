@@ -12,12 +12,9 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
 
         private readonly IUserRepository _userRepository;
 
-        private readonly MappingProfile _mapper;
-
-        public UserController(IUserRepository userRepository, MappingProfile mapper)
+        public UserController(IUserRepository userRepository)
         {
             this._userRepository = userRepository;
-            this._mapper = mapper;
         }
 
         [HttpGet("GetUserByID")]

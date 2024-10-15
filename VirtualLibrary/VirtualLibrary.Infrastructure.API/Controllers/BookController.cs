@@ -38,7 +38,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
         [HttpGet("GetBooksByTitle")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Book>))]
         [ProducesResponseType(400)]
-        public IActionResult GetBooksByTitle([FromBody] string title)
+        public IActionResult GetBooksByTitle(string title)
         {
 
             if (!ModelState.IsValid)
@@ -56,13 +56,13 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
         [HttpGet("GetBooksByAuthor")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Book>))]
         [ProducesResponseType(400)]
-        public IActionResult GetBooksByAuthor([FromBody] User author)
+        public IActionResult GetBooksByAuthor(int ID)
         {
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var books = _bookRepository.GetBooksByAuthor(author);
+            var books = _bookRepository.GetBooksByAuthor(ID);
 
             if (books == null)
                 return BadRequest(ModelState);
@@ -75,7 +75,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
         [HttpGet("GetBookByID")]
         [ProducesResponseType(400, Type = typeof(Book))]
         [ProducesResponseType(400)]
-        public IActionResult GetBookByID([FromBody] int ID)
+        public IActionResult GetBookByID(int ID)
         {
 
             if(!ModelState.IsValid)
@@ -95,7 +95,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
         [HttpPost("CreateBook")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public IActionResult CreateBook([FromBody] Book book)
+        public IActionResult CreateBook(Book book)
         {
 
             if (book == null)
@@ -118,7 +118,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public IActionResult UpdateBook([FromBody] Book book)
+        public IActionResult UpdateBook(Book book)
         {
 
             if (book == null)
@@ -141,7 +141,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public IActionResult DeleteBook([FromBody]Book book)
+        public IActionResult DeleteBook(Book book)
         {
 
             if (book == null)

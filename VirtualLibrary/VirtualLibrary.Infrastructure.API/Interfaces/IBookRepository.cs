@@ -10,7 +10,7 @@ namespace VirtualLibrary.Infrastructure.API.Interfaces
 
         public IEnumerable<Book> GetBooksByTitle(string title);
 
-        public IEnumerable<Book> GetBooksByAuthor(User author);
+        public IEnumerable<Book> GetBooksByAuthor(int ID);
 
         public Book? GetBookByID(int ID);
 

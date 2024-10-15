@@ -25,9 +25,9 @@ namespace VirtualLibrary.Infrastructure.API.Repository
             return this._context.Book.Where(book => book.Title.Contains(title)).ToList();
         }
 
-        public IEnumerable<Book> GetBooksByAuthor(User author)
+        public IEnumerable<Book> GetBooksByAuthor(int ID)
         {
-            return this._context.Book.Where(book => book.AuthorID == author.ID).ToList();
+            return this._context.Book.Where(book => book.AuthorID == ID).ToList();
         }
 
         public Book? GetBookByID(int ID)

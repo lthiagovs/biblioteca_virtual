@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
-using VirtuaLibrary.Services.ApiService.Interface;
+using VirtuaLibrary.Services.ApiService.Interfaces;
 using VirtualLibrary.Domain.Models.Library;
 using VirtualLibrary.Domain.Models.Person;
 
@@ -98,13 +98,13 @@ namespace VirtuaLibrary.Services.ApiService.Consume
             return getBook;
         }
 
-        public async Task<List<Book>> GetBooksByAuthor(User user)
+        public async Task<List<Book>> GetBooksByAuthor(int ID)
         {
             var request = new RestRequest("Book/GetAllBooksByAuthor", Method.Get);
 
-            string userSerialized = JsonConvert.SerializeObject(user);
+            string userSerialized = JsonConvert.SerializeObject(ID);
 
-            request.AddParameter("author", userSerialized);
+            request.AddParameter("ID", userSerialized);
 
             var response = await _client.ExecuteAsync(request);
 

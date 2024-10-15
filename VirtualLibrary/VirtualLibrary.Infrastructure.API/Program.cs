@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using VirtualLibrary.Infrastructure.API.Interfaces;
+using VirtualLibrary.Infrastructure.API.Mapper;
 using VirtualLibrary.Infrastructure.API.Repository;
 using VirtualLibrary.Infrastructure.Data.Context;
 
@@ -10,7 +11,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IBookRepository, BookRepository>();

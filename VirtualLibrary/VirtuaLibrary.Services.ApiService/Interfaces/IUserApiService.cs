@@ -1,8 +1,8 @@
 ﻿using VirtualLibrary.Domain.Models.Person;
 
-namespace VirtuaLibrary.Services.ApiService.Interface
+namespace VirtuaLibrary.Services.ApiService.Interfaces
 {
-    public interface IUserUserApiService
+    public interface IUserApiService
     {
 
         public Task<List<User>> GetUsers();
