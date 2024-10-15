@@ -6,6 +6,7 @@ using VirtualLibrary.Infrastructure.API.Interfaces;
 namespace VirtualLibrary.Infrastructure.API.Controllers
 {
 
+    [Route("api/[controller]")]
     [ApiController]
     public class BookController : Controller
     {

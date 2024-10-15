@@ -6,6 +6,7 @@ using VirtualLibrary.Infrastructure.API.Mapper;
 
 namespace VirtualLibrary.Infrastructure.API.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController : Controller
     {
@@ -18,8 +19,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
         }
 
         [HttpGet("GetUserByID")]
-        [ProducesResponseType(200, Type = typeof(UserDto))]
-        [ProducesResponseType(400)]
+        [ProducesResponseType(200, Type = typeof(User))]
         public IActionResult GetUserByID([FromBody] int ID)
         {
 
@@ -29,6 +29,20 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
             var user = this._userRepository.GetUserByID(ID);
 
             if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            return Ok(user);
+
+        }
+
+        [HttpGet("GetUserByLogin")]
+        [ProducesResponseType(200, Type = typeof(User))]
+        public IActionResult GetUserByLogin([FromQuery] string email, [FromQuery] string password)
+        {
+
+            var user = this._userRepository.GetUserByLogin(email, password);
+
+            if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             return Ok(user);

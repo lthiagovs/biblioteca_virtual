@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 using VirtuaLibrary.Services.ApiService.Interfaces;
-using VirtualLibrary.Domain.Models.Library;
 using VirtualLibrary.Domain.Models.Person;
 
 namespace VirtuaLibrary.Services.ApiService.Consume
@@ -78,7 +77,7 @@ namespace VirtuaLibrary.Services.ApiService.Consume
             return getUser;
         }
 
-        public async Task<User?> GetUserByLogin(string email, string password)
+        public async Task<User> GetUserByLogin(string email, string password)
         {
             var request = new RestRequest("User/GetUserByLogin", Method.Get);
             request.AddParameter("email", email);
@@ -92,10 +91,10 @@ namespace VirtuaLibrary.Services.ApiService.Consume
             if (response.Content == null)
                 throw new Exception("Something went wrong.");
 
-            User? getUser = JsonConvert.DeserializeObject<User?>(response.Content);
+            User? getUser = JsonConvert.DeserializeObject<User>(response.Content);
 
             if (getUser == null)
-                throw new Exception("Something went wrong");
+                throw new Exception("Failed to deserialize user from response.");
 
             return getUser;
         }

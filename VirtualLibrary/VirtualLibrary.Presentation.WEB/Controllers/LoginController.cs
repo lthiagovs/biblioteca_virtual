@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using VirtuaLibrary.Services.ApiService.Interfaces;
+using VirtualLibrary.Domain.Models.Person;
 using VirtualLibrary.Presentation.WEB.Models;
 
 namespace VirtualLibrary.Presentation.WEB.Controllers
@@ -19,16 +20,25 @@ namespace VirtualLibrary.Presentation.WEB.Controllers
             return View();
         }
 
-        public IActionResult Login([FromForm] LoginRequestModel request)
+        [HttpPost]
+        public async Task<IActionResult> Login([FromForm] LoginRequestModel request)
         {
 
             if (request.email == null || request.password == null)
                 return Index();
 
-            var user = this._userService.GetUserByLogin(request.email, request.password);
+            User? user = null;
+            try
+            {
+                user = await this._userService.GetUserByLogin(request.email, request.password);
+            }
+            catch
+            {
+                TempData["Message"] = "Wrong credentials";
+            }
 
             if (user == null)
-                return Index();
+                return RedirectToAction("Index");
 
             return RedirectToAction("Index", "User");
 

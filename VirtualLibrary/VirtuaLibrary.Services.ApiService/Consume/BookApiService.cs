@@ -6,6 +6,7 @@ using VirtualLibrary.Domain.Models.Person;
 
 namespace VirtuaLibrary.Services.ApiService.Consume
 {
+
     public class BookApiService : IBookApiService
     {
 
