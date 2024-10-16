@@ -1,5 +1,5 @@
 ﻿@using VirtualLibrary.Domain.Models.Library
-
+@model BookFilterModel
 @{
 
     var books = TempData["Books"] as List<Book>;
@@ -71,29 +71,36 @@
     </div>
     <div class="flex-fill">
         <h3>Acervo</h3>
-        <div class="mb-3 d-flex">
-            <input type="text" class="form-control" id="searchBook" placeholder="Pesquisar por título...">
-            <button class="btn btn-green ms-2">Pesquisar</button>
-        </div>
+        <form method="post">
+            <div class="mb-3 d-flex">
+                <input type="text" asp-for="Title" class="form-control" id="searchBook" placeholder="Pesquisar por título...">
+                <button type="submit" asp-action="Search" class="btn btn-green ms-2">Pesquisar</button>
+            </div>
+        </form>
         <div class="row">
-            <div class="col-md-4">
-                @if(books != null){
-                    @foreach (var book in books)
-                    {
-                        <div class="card">
+            @if (books != null)
+            {
+                foreach (var book in books)
+                {
+                    <div class="col-md-4">
+                        <div class="card mb-4">
                             <img src="https://via.placeholder.com/250x150" class="card-img-top" alt="Livro 1">
                             <div class="card-body">
-                                <div class="d-flex align-items-center mb-2">
-                                    <span>Author</span>
-                                </div>
+                                @if (book.Author != null)
+                                {
+                                    <div class="d-flex align-items-center mb-2">
+                                        <span>@book.Author.Name</span>
+                                    </div>
+                                }
                                 <h5 class="card-title">@book.Title</h5>
                                 <p class="card-text">@book.Description</p>
                                 <button class="btn btn-green">Salvar</button>
                             </div>
                         </div>
-                    }
+                    </div>
                 }
-            </div>
+            }
         </div>
     </div>
 </div>
+

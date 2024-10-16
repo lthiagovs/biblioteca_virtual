@@ -1,4 +1,5 @@
-﻿using VirtualLibrary.Domain.Models.Library;
+﻿using Microsoft.EntityFrameworkCore;
+using VirtualLibrary.Domain.Models.Library;
 using VirtualLibrary.Domain.Models.Person;
 using VirtualLibrary.Infrastructure.API.Interfaces;
 using VirtualLibrary.Infrastructure.Data.Context;
@@ -17,7 +18,7 @@ namespace VirtualLibrary.Infrastructure.API.Repository
 
         public IEnumerable<Book> GetAllBooks()
         {
-            return this._context.Book.ToList();
+            return this._context.Book.Include(book => book.Author).ToList();
         }
 
         public IEnumerable<Book> GetBooksByTitle(string title)
@@ -27,7 +28,7 @@ namespace VirtualLibrary.Infrastructure.API.Repository
 
         public IEnumerable<Book> GetBooksByAuthor(int ID)
         {
-            return this._context.Book.Where(book => book.AuthorID == ID).ToList();
+            return this._context.Book.Where(book => book.AuthorID == ID).Include(book => book.Author).ToList();
         }
 
         public Book? GetBookByID(int ID)

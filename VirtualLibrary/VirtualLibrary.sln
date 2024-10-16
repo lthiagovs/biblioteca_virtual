@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Notes", "0 - Notes", "{
 		gitCommands.txt = gitCommands.txt
 		..\..\..\..\..\..\Downloads\gitCommits.png = ..\..\..\..\..\..\Downloads\gitCommits.png
 		..\..\..\..\..\..\Downloads\Gitflow_Diagram.jpg = ..\..\..\..\..\..\Downloads\Gitflow_Diagram.jpg
+		note.txt = note.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{9770EA45-88A5-40F3-B47C-E5516673EC51}"
@@ -33,7 +34,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualLibrary.Test", "Virt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtualLibrary.Domain.Dto", "VirtualLibrary.Domain.Dto\VirtualLibrary.Domain.Dto.csproj", "{3F5DFB1A-D48D-4448-8A7F-7B74ADA02B10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualLibrary.Infrastructure.Data", "VirtualLibrary.Infrastructure.Data\VirtualLibrary.Infrastructure.Data.csproj", "{E3C5B198-B007-4388-ADC8-52AF23AB85B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtualLibrary.Infrastructure.Data", "VirtualLibrary.Infrastructure.Data\VirtualLibrary.Infrastructure.Data.csproj", "{E3C5B198-B007-4388-ADC8-52AF23AB85B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

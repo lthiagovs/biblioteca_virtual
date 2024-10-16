@@ -37,18 +37,14 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
         }
 
         [HttpGet("GetBooksByTitle")]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<Book>))]
-        [ProducesResponseType(400)]
-        public IActionResult GetBooksByTitle(string title)
+        [ProducesResponseType(200, Type = typeof(List<Book>))]
+        public IActionResult GetBooksByTitle([FromQuery] string title)
         {
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var books = _bookRepository.GetBooksByTitle(title);
-
-            if (books == null)
-                return BadRequest(ModelState);
 
             return Ok(books);
 

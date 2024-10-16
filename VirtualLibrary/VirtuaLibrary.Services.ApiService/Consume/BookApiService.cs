@@ -138,7 +138,7 @@ namespace VirtuaLibrary.Services.ApiService.Consume
             if (response.Content == null)
                 throw new Exception("Something went wrong.");
 
-            List<Book>? getBooks = JsonConvert.DeserializeObject<List<Book>>(response.Content);
+            List<Book> getBooks = JsonConvert.DeserializeObject<List<Book>>(response.Content);
 
             if (getBooks == null)
                 throw new Exception("Something went wrong");

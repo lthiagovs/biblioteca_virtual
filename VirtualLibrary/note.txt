@@ -1,0 +1,3 @@
+> quarta: página do usuario  | postar livros | download livros | categorias |
+> quinta: fotos de usuario | acessar tela do autor | pesquisar por autor
+> sexta: estética pura

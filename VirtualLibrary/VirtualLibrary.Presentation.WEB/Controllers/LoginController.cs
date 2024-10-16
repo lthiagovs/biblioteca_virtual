@@ -21,8 +21,9 @@ namespace VirtualLibrary.Presentation.WEB.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login([FromForm] LoginRequestModel request)
-        {
+
+
+        public async Task<IActionResult> Login([FromForm] LoginRequestModel request)        {
 
             if (request.email == null || request.password == null)
                 return Index();
