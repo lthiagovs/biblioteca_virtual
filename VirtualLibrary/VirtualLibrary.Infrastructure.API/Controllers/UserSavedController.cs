@@ -20,7 +20,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
 
         [HttpGet("GetAllUserSavedBooks")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Book>))]
-        public IActionResult GetAllCategories([FromQuery]int ID)
+        public IActionResult GetAllUserSavedBooks([FromQuery]int ID)
         {
 
             if (!ModelState.IsValid)
