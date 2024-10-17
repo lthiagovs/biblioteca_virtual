@@ -2,7 +2,7 @@
 
 namespace VirtualLibrary.Infrastructure.API.Interfaces
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IRepository
     {
 
         public ICollection<Category> GetAllCategories();
