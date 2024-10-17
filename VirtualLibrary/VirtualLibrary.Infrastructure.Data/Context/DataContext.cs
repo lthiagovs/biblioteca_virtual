@@ -12,6 +12,10 @@ namespace VirtualLibrary.Infrastructure.Data.Context
 
         public required DbSet<Book> Book { get; set; }
 
+        public required DbSet<Category> Category { get; set; }
+
+        public required DbSet<UserSaved> UserSaved {  get; set; }
+
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 
