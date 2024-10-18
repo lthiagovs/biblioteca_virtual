@@ -1,8 +1,9 @@
-﻿@using VirtualLibrary.Domain.Models.Person
+﻿@using VirtualLibrary.Domain.Models.Library
+@using VirtualLibrary.Domain.Models.Person
 @{
 
     var user = TempData["User"] as User;
-
+    var books = TempData["Books"] as List<Book>;
 }
 
 <style>
@@ -57,33 +58,22 @@
         <button class="btn btn-green ms-2">Pesquisar</button>
     </div>  
     <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://via.placeholder.com/250x150" class="card-img-top" alt="Livro 1">
-                <div class="card-body">
-                    <h5 class="card-title">Título do Livro 1</h5>
-                    <p class="card-text">Descrição do Livro 1.</p>
+
+        @if(books != null)
+        {
+            @foreach (Book book in books)
+            {
+                <div class="col-md-4">
+                    <div class="card">
+                    <img src="https://via.placeholder.com/250x150" class="card-img-top" alt="Livro 3">
+                        <div class="card-body">
+                            <h5 class="card-title">@book.Title</h5>
+                            <p class="card-text">@book.Description</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://via.placeholder.com/250x150" class="card-img-top" alt="Livro 2">
-                <div class="card-body">
-                    <h5 class="card-title">Título do Livro 2</h5>
-                    <p class="card-text">Descrição do Livro 2.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://via.placeholder.com/250x150" class="card-img-top" alt="Livro 3">
-                <div class="card-body">
-                    <h5 class="card-title">Título do Livro 3</h5>
-                    <p class="card-text">Descrição do Livro 3.</p>
-                </div>
-            </div>
-        </div>
-        <!-- Adicione mais livros conforme necessário -->
+            }
+        }
+
     </div>
 </div>

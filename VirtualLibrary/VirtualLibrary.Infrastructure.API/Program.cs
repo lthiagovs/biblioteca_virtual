@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using VirtualLibrary.Infrastructure.API.Interfaces;
-using VirtualLibrary.Infrastructure.API.Mapper;
 using VirtualLibrary.Infrastructure.API.Repository;
 using VirtualLibrary.Infrastructure.Data.Context;
 
@@ -16,6 +15,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserSavedRepository, UserSavedRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

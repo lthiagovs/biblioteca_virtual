@@ -18,7 +18,8 @@ namespace VirtualLibrary.Infrastructure.API.Repository
         public ICollection<Book> GetAllUserSavedBooks(int ID)
         {
             List<Book> books = new List<Book>();
-            foreach (UserSaved saved in this._context.UserSaved.Where(save => save.UserID == ID))
+            List<UserSaved> saveds = this._context.UserSaved.Where(save => save.UserID == ID).ToList();
+            foreach (UserSaved saved in saveds)
             {
                 Book? book = this._context.Book.FirstOrDefault(bk => bk.ID == saved.BookID);
 

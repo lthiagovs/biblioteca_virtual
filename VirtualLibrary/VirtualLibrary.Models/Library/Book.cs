@@ -11,23 +11,21 @@ namespace VirtualLibrary.Domain.Models.Library
         public int ID { get; set; }
 
         [Required]
-        public string Title {  get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(1000)]
-        public string Description {  get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
 
         [ForeignKey(nameof(Category))]
-        public int CategoryID {  get; set; }
+        public int CategoryID { get; set; }
 
-        public Category Category {  get; set; }
-
+        public Category? Category { get; set; }
 
         [ForeignKey(nameof(Author))]
         public int AuthorID { get; set; }
-
-        public User? Author {  get; set; }
         
+        public User? Author {  get; set; }
 
     }
 

@@ -10,7 +10,8 @@ var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddSingleton(new RestClient(connection!));
 builder.Services.AddScoped<IUserApiService, UserApiService>();
 builder.Services.AddScoped<IBookApiService, BookApiService>();
-
+builder.Services.AddScoped<IUserSavedApiService, UserSavedApiService>();
+builder.Services.AddScoped<ICategoryApiService, CategoryApiService>();
 
 var app = builder.Build();
 

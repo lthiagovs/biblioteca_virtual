@@ -20,9 +20,7 @@ namespace VirtuaLibrary.Services.ApiService.Consume
         public async Task<bool> CreateBook(Book book)
         {
             var request = new RestRequest("Book/CreateBook", Method.Post);
-            var bookSerialized = JsonConvert.SerializeObject(book);
-
-            request.AddParameter("book", bookSerialized);
+            request.AddJsonBody(book);
 
             var response = await this._client.ExecuteAsync(request);
 

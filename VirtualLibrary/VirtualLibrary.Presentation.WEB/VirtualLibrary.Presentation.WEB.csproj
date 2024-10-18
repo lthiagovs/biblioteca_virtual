@@ -14,4 +14,8 @@
     <ProjectReference Include="..\VirtuaLibrary.Services.ApiService\VirtuaLibrary.Services.ApiService.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="files\" />
+  </ItemGroup>
+
 </Project>
