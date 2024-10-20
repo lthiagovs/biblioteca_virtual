@@ -2,31 +2,37 @@
 @using VirtualLibrary.Domain.Models.Library
 @using VirtualLibrary.Domain.Models.Person
 @{
-
     var user = TempData["User"] as User;
     var books = TempData["Books"] as List<Book>;
 }
-
 <style>
     .card {
         border: none;
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
         transition: transform 0.2s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 400px;
     }
-
-        .card:hover {
-            transform: scale(1.05);
-        }
-
+    .card:hover {
+        transform: scale(1.05);
+    }
     .btn-green {
-        background-color: #007b33; /* Cor do botão verde */
-        color: white; /* Cor do texto */
+        background-color: #007b33;
+        color: white;
     }
-
-        .btn-green:hover {
-            background-color: #005b26; /* Cor do botão ao passar o mouse */
-        }
-    /* Estilo da imagem do usuário */
+    .btn-green:hover {
+        background-color: #005b26;
+    }
+    .btn-group {
+        display: flex;
+        justify-content: space-between;
+    }
+    .btn {
+        flex: 1;
+        margin: 0 5px;
+    }
     .user-photo {
         border-radius: 50%;
         margin-right: 20px;
@@ -50,58 +56,50 @@
                 <h2>Olá, @user.Name!</h2>
                 <p>Email: @user.Email</p>
                 <p>@user.Description</p>
-                <form method="post">                
+                <form method="post">
                     <button type="submit" asp-action="Logout" class="btn btn-danger ms-2">Sair</button>
                 </form>
-
             }
         </div>
     </div>
 </div>
-
 <div class="container my-5">
     <h3>Livros Salvos</h3>
     <div class="mb-3 d-flex">
         <input type="text" class="form-control" id="searchBook" placeholder="Pesquisar por título...">
         <button class="btn btn-green ms-2">Pesquisar</button>
-    </div>  
+    </div>
     <div class="row">
-
         @if(books != null)
         {
             @foreach (Book book in books)
             {
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="~/files/@(book.AuthorID + book.Title + ".png")" class="card-img-top" alt="Livro 3">
+                        <img src="~/files/@(book.AuthorID + book.Title + ".png")" style="height: 200px" class="card-img-top" alt="Livro">
                         <div class="card-body">
                             <form method="post">
                                 <input type="text" asp-for="ID" value="@book.ID" style="visibility:hidden;"/>
                                 <h5 class="card-title">@book.Title</h5>
                                 <p class="card-text">@book.Description</p>
-                                <button type="submit" asp-action="Download" class="btn btn-primary w-100">Download</button>
-                                <button type="submit" asp-action="Remove" class="btn btn-danger w-100">Remover</button>
+                                <div class="btn-group">
+                                    <button type="submit" asp-action="Download" class="btn btn-primary">Download</button>
+                                    <button type="submit" asp-action="Remove" class="btn btn-danger">Remover</button>
+                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
             }
         }
-
     </div>
 </div>
-
 <script>
-
     const fileInput = document.getElementById('profileInput');
-    const selectedImage = document.getElementById('selectedImage');
     const changePhoto = document.getElementById('changePhoto');
-
     userPhoto.addEventListener('click', function () {
         fileInput.click();
     });
-
-
     fileInput.addEventListener('change', function (event) {
         changePhoto.click();
     });

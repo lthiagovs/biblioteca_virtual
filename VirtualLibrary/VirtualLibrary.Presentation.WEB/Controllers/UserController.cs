@@ -61,7 +61,7 @@ namespace VirtualLibrary.Presentation.WEB.Controllers
             if (book == null)
                 return RedirectToAction("Index", "Home");
 
-            var filesPath = Path.Combine(Directory.GetCurrentDirectory(), "files");
+            var filesPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "files");
 
             if (!Directory.Exists(filesPath))
                 Directory.CreateDirectory(filesPath);
