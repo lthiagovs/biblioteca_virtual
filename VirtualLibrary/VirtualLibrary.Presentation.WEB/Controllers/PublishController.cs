@@ -57,19 +57,6 @@ namespace VirtualLibrary.Presentation.WEB.Controllers
                 if (!Directory.Exists(filesPath))
                     Directory.CreateDirectory(filesPath);
 
-                var imagePath = Path.Combine(filesPath, bookImage.FileName);
-                var filePath = Path.Combine(filesPath, bookFile.FileName);
-
-                using (var stream = new FileStream(imagePath, FileMode.Create))
-                {
-                    await bookImage.CopyToAsync(stream);
-                }
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await bookFile.CopyToAsync(stream);
-                }
-
                 Book book = new Book();
 
                 // Verifica se o título ou a descrição estão nulos ou vazios
@@ -81,16 +68,28 @@ namespace VirtualLibrary.Presentation.WEB.Controllers
                 book.Description = request.Description;
                 book.AuthorID = user.ID;
                 book.CategoryID = 1;
-                //book.Author = user;
-                //book.Category = await this._categoryApiService.GetCategoryByID(1);
 
                 await this._bookApiService.CreateBook(book);
+
+                var imageExtension = Path.GetExtension(bookImage.FileName);
+                var bookExtension = Path.GetExtension(bookFile.FileName);
+
+                var imagePath = Path.Combine(filesPath, (book.AuthorID+book.Title)+imageExtension);
+                var filePath = Path.Combine(filesPath, (book.AuthorID + book.Title)+bookExtension);
+
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    await bookImage.CopyToAsync(stream);
+                }
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await bookFile.CopyToAsync(stream);
+                }
 
                 return RedirectToAction("Index");
 
             }
-
-
 
             return View();
         }

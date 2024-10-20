@@ -1,4 +1,5 @@
-﻿@using VirtualLibrary.Domain.Models.Library
+﻿@model BookRequestModel
+@using VirtualLibrary.Domain.Models.Library
 @using VirtualLibrary.Domain.Models.Person
 @{
 
@@ -67,10 +68,13 @@
                     <div class="card">
                     <img src="https://via.placeholder.com/250x150" class="card-img-top" alt="Livro 3">
                         <div class="card-body">
-                            <h5 class="card-title">@book.Title</h5>
-                            <p class="card-text">@book.Description</p>
-                            <button type="submit" class="btn btn-primary w-100">Download</button>
-                            <button type="submit" class="btn btn-danger w-100">Remover</button>
+                            <form method="post">
+                                <input type="text" asp-for="ID" value="@book.ID" style="visibility:hidden;"/>
+                                <h5 class="card-title">@book.Title</h5>
+                                <p class="card-text">@book.Description</p>
+                                <button type="submit" asp-action="Download" class="btn btn-primary w-100">Download</button>
+                                <button type="submit" asp-action="Remove" class="btn btn-danger w-100">Remover</button>
+                            </form>
                         </div>
                     </div>
                 </div>
