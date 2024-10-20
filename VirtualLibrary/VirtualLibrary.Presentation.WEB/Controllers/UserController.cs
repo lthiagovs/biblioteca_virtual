@@ -81,6 +81,43 @@ namespace VirtualLibrary.Presentation.WEB.Controllers
         public async Task<IActionResult> Remove([FromForm] BookRequestModel request)
         {
 
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> ChangePhoto(IFormFile profileInput)
+        {
+
+            User? user = null;
+
+            if (Request.Cookies.TryGetValue("UserCookie", out string? valor))
+                if (valor != null)
+                    user = JsonConvert.DeserializeObject<User>(valor);
+
+            if (user == null)
+                return RedirectToAction("Index", "Login");
+
+            if (profileInput != null)
+            {
+
+                var filesPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "profile");
+
+                if (!Directory.Exists(filesPath))
+                    Directory.CreateDirectory(filesPath);
+
+                var imageExtension = Path.GetExtension(profileInput.FileName);
+
+                var imagePath = Path.Combine(filesPath, (user.ID) + imageExtension);
+
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    await profileInput.CopyToAsync(stream);
+                }
+
+                return RedirectToAction("Index");
+
+            }
+
+            return RedirectToAction("Index", "Home");
         }
 
 

@@ -18,9 +18,7 @@ namespace VirtuaLibrary.Services.ApiService.Consume
         public async Task<bool> CreateUser(User user)
         {
             var request = new RestRequest("User/CreateUser", Method.Post);
-            var userSerialized = JsonConvert.SerializeObject(user);
-
-            request.AddParameter("user", userSerialized);
+            request.AddJsonBody(user);
 
             var response = await this._client.ExecuteAsync(request);
 

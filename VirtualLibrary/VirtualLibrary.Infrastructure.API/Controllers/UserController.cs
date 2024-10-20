@@ -51,17 +51,10 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
 
         [HttpPost("CreateUser")]
         [ProducesResponseType(204)]
-        [ProducesResponseType(400)]
         public IActionResult CreateUser([FromBody] User user)
         {
-
-            if (user == null)
-                return BadRequest(ModelState);
-
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
-            //var userMap = this._mapper.Map<User>(user);
 
             if(!_userRepository.CreateUser(user))
             {
@@ -69,7 +62,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return Ok("Sucessfully Created!");
+            return Ok(true);
 
         }
 

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VirtualLibrary.Domain.Models.Library;
-using VirtualLibrary.Domain.Models.Person;
 using VirtualLibrary.Infrastructure.API.Interfaces;
 using VirtualLibrary.Infrastructure.Data.Context;
 

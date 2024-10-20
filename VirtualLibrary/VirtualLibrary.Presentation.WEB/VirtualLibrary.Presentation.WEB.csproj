@@ -15,7 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="files\" />
+    <Folder Include="wwwroot\files\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\files\1testando.jpg" />
+    <None Include="wwwroot\files\1testando.pdf" />
   </ItemGroup>
 
 </Project>

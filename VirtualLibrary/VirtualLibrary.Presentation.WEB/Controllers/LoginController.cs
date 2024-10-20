@@ -31,9 +31,7 @@ namespace VirtualLibrary.Presentation.WEB.Controllers
         }
 
         [HttpPost]
-
-
-        public async Task<IActionResult> Login([FromForm] LoginRequestModel request)        {
+        public async Task<IActionResult> Login([FromForm] UserRequestModel request)        {
 
             if (request.email == null || request.password == null)
                 return Index();
@@ -57,6 +55,25 @@ namespace VirtualLibrary.Presentation.WEB.Controllers
 
             return RedirectToAction("Index", "User");
 
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register([FromForm] UserRequestModel request)
+        {
+
+            if(request.email == null || request.password == null || request.name == null)
+                return RedirectToAction("Index");
+
+            User user = new User();
+            user.Name = request.name;
+            user.Email = request.email;
+            user.Password = request.password;
+            user.Description = "Olá, este é meu perfil";
+            user.PhoneNumber = "Sem numero cadastrado";
+
+            await this._userService.CreateUser(user);
+
+            return RedirectToAction("Index");
         }
 
 

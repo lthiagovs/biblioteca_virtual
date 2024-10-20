@@ -52,7 +52,7 @@ namespace VirtualLibrary.Presentation.WEB.Controllers
             if (bookImage != null && bookFile != null)
             {
 
-                var filesPath = Path.Combine(Directory.GetCurrentDirectory(), "files");
+                var filesPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "files");
 
                 if (!Directory.Exists(filesPath))
                     Directory.CreateDirectory(filesPath);

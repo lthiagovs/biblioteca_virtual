@@ -1,4 +1,4 @@
-﻿@model LoginRequestModel
+﻿@model UserRequestModel
 @{
 
 }
@@ -63,20 +63,20 @@
                         </div>
                         <!-- Register Tab -->
                         <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                            <form class="mt-3">
+                            <form class="mt-3" method="post">
                                 <div class="mb-3">
                                     <label for="registerName" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="registerName" placeholder="Digite seu nome" required>
+                                    <input type="text" asp-for="name" class="form-control" id="registerName" placeholder="Digite seu nome" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="registerEmail" class="form-label">E-mail</label>
-                                    <input type="email" class="form-control" id="registerEmail" placeholder="Digite seu e-mail" required>
+                                    <input type="email" asp-for="email" class="form-control" id="registerEmail" placeholder="Digite seu e-mail" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="registerPassword" class="form-label">Senha</label>
-                                    <input type="password" class="form-control" id="registerPassword" placeholder="Digite sua senha" required>
+                                    <input type="password" asp-for="password" class="form-control" id="registerPassword" placeholder="Digite sua senha" required>
                                 </div>
-                                <button type="submit" class="btn btn-green w-100">Registrar</button>
+                                <button type="submit" asp-action="Register" class="btn btn-green w-100">Registrar</button>
                             </form>
                         </div>
                     </div>
