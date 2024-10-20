@@ -39,8 +39,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
 
         [HttpPost("UserSaveBook")]
         [ProducesResponseType(204)]
-        [ProducesResponseType(400)]
-        public IActionResult UserSaveBook([FromQuery]UserSaved saved)
+        public IActionResult UserSaveBook([FromBody] UserSaved saved)
         {
 
             if (saved == null)
@@ -55,7 +54,7 @@ namespace VirtualLibrary.Infrastructure.API.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return Ok("Sucessfully created!");
+            return Ok(true);
 
         }
 

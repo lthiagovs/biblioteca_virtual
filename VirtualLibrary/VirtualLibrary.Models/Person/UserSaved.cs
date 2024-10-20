@@ -16,9 +16,9 @@ namespace VirtualLibrary.Domain.Models.Person
         [ForeignKey(nameof(Book))]
         public int BookID {  get; set; }
 
-        public User User {  get; set; }
+        public User? User {  get; set; }
 
-        public Book Book {  get; set; }
+        public Book? Book {  get; set; }
 
     }
 }

@@ -1,8 +1,9 @@
 ﻿@using VirtualLibrary.Domain.Models.Library
-@model BookFilterModel
+@model BookRequestModel
 @{
 
     var books = TempData["Books"] as List<Book>;
+    var categories = TempData["Categories"] as List<Category>;
 
 }
 
@@ -60,14 +61,15 @@
 <div class="container my-5 d-flex">
     <div class="sidebar">
         <h4>Categorias</h4>
-        <ul class="list-group">
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Ficção</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Não-Ficção</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">História</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Ciência</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Fantasia</a></li>
-            <li class="list-group-item"><a href="#" class="text-decoration-none">Biografias</a></li>
-        </ul>
+        @if (categories != null)
+        {
+            <ul class="list-group">
+            @foreach (Category category in categories)
+            {
+                    <li class="list-group-item"><a href="#" class="text-decoration-none">@category.Name</a></li>
+            }
+            </ul>
+        }
     </div>
     <div class="flex-fill">
         <h3>Acervo</h3>
@@ -92,9 +94,12 @@
                                         <span>@book.Author.Name</span>
                                     </div>
                                 }
-                                <h5 class="card-title">@book.Title</h5>
-                                <p class="card-text">@book.Description</p>
-                                <button class="btn btn-green">Salvar</button>
+                                <form method="post">
+                                    <input type="text" asp-for="ID" value="@book.ID" style="visibility:hidden;"/>
+                                    <h5 class="card-title">@book.Title</h5>
+                                    <p class="card-text">@book.Description</p>
+                                    <button type="submit" asp-action="SaveBook"  class="btn btn-green">Salvar</button>
+                                </form>
                             </div>
                         </div>
                     </div>

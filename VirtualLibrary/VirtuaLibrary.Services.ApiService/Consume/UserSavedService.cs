@@ -39,9 +39,8 @@ namespace VirtuaLibrary.Services.ApiService.Consume
         public async Task<bool> UserSaveBook(UserSaved saved)
         {
             var request = new RestRequest("UserSaved/UserSaveBook", Method.Post);
-            var savedSerialized = JsonConvert.SerializeObject(saved);
 
-            request.AddParameter("saved", savedSerialized);
+            request.AddJsonBody(saved);
 
             var response = await this._client.ExecuteAsync(request);
 
